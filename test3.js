@@ -12,3 +12,6 @@ console.log("flat3.flat(1)", flat3.flat(1))
 console.log("flat3.flat(2)", flat3.flat(2))
 console.log("flat3.flat(3)", flat3.flat(3))
 console.log("flat3.flat(Infinity)", flat3.flat(Infinity))
+
+let flat4 = [1, 2,[[[[[[[[[3]]]]]]]]]];
+console.log("flat4.flat()", flat4.flat(Infinity))
