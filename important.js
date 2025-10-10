@@ -582,3 +582,55 @@
 // }
 
 // console.log(arr)
+
+// let str = "Dhruv";
+// console.log(typeof str.toUpperCase());
+
+// const code = "console.log(Math.pow(2, 10));"
+// eval(code)
+
+// const sym1 = Symbol("id");
+// const sym2 = Symbol("id");
+
+// console.log(sym1 === sym2); // false → always unique
+// const user = {
+//     [sym1]: 123,
+//     [sym2]: 124,
+//     name: "Dhruv"
+// };
+
+// console.log(user[sym1]); // 123
+// console.log(user[sym2]); // 124
+// console.log(user.name);  // Dhruv
+
+// function* myGenerator() {
+//     yield 1;
+//     yield 2;
+//     yield 3;
+// }
+// const gen = myGenerator();
+
+// console.log(gen.next().value); // { value: 1, done: false }
+// console.log(gen.next()); // { value: 2, done: false }
+// console.log(gen.next()); // { value: 3, done: false }
+// console.log(gen.next()); // { value: undefined, done: true }
+
+
+// console.log(1 - '2' + '2');
+// {
+//     var x = y = 10;
+// }
+// console.log(y)
+// console.log(x)
+
+// console.log(Math.max())
+// console.log(Math.min())
+
+// var name = "abc";
+// const user = {
+//     name: 'dhruv',
+//     greet: () => {
+//         console.log(this.name)
+//     }
+// }
+// user.greet()
