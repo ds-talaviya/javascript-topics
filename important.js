@@ -14,28 +14,35 @@
 // arr[10] = 99;
 // console.log(arr.length);
 
-// // for (var i = 0; i < 3; i++) {
-// //     setTimeout(() => console.log(i), 100);
-// // }
+// for (var i = 0; i < 3; i++) {
+//     setTimeout(() => console.log(i), 100);
+// }
 
-// // for (let i = 0; i < 3; i++) {
-// //     setTimeout(() => console.log(i), 100);
-// // }
+// for (let i = 0; i < 3; i++) {
+//     setTimeout(() => console.log(i), 100);
+// }
 
 // console.log(Boolean([]));
 // console.log(Boolean({}));
 // console.log(Boolean(""));
+
 // const obj = {
 //     a: 10,
-//     b: () => console.log(this.a)
+//     b: () => console.log(this.a) // can't access because of arrow method in browser global object, in node undefined
 // };
 // obj.b();
 
-// // let x = 10;
-// // (function () {
-// //     console.log(x);
-// //     let x = 20;
-// // })();
+// const obj = {
+//     a: 10,
+//     b() { console.log(this.a) } // can access
+// };
+// obj.b();
+
+// let x = 10;
+// (function () {
+//     console.log(x);
+//     let x = 20;
+// })();
 
 // console.log([1, 2] == "1,2");
 // console.log([] == false);
@@ -48,13 +55,11 @@
 // person = null;
 // console.log(p1);
 
-// // let person = { name: "Dhruv" };
-// // const p1 = person;
-
-// // person = { name: "Ajay" };
-// // console.log(p1); // 👉 { name: "Dhruv" }
-// // console.log(person); // 👉 { name: "Ajay" }
-
+// let person = { name: "Dhruv" };
+// const p1 = person;
+// person = { name: "Ajay" };
+// console.log(p1); // 👉 { name: "Dhruv" }
+// console.log(person); // 👉 { name: "Ajay" }
 
 
 // console.log(typeof NaN);
@@ -81,6 +86,11 @@
 // console.log(typeof x1);
 
 // console.log([] == ![]);
+// Compare[] == false(because![] → false)
+// JS sees: object == boolean
+// Rule: When boolean is compared with something else → convert boolean → number(false → 0)
+// object → primitive →[] → "" → 0
+// Now it’s 0 == 0 → true ✅
 
 
 // let a3 = 5;
@@ -89,11 +99,11 @@
 //     var a3 = 10;
 // })();
 
-// // let a2 = 5;
-// // (function () {
-// //     console.log(a2);
-// //     let a2 = 10;
-// // })();
+// let a2 = 5;
+// (function () {
+//     console.log(a2);
+//     let a2 = 10;
+// })();
 
 // let x2 = "10";
 // x2 = x2 - 1;
@@ -129,11 +139,13 @@
 // console.log("A" - "B" + "2"); // NaN2
 // console.log("A" - "B" + 2); // NaN
 
-// // let x1 = 10;
-// // (function () {
-// //     console.log(x1);
-// //     let x1 = 20;
-// // })();
+// let x1 = 10;
+// (function () {
+//     console.log(x1);
+//     let x1 = 20;
+// })();
+
+// ref compare
 // console.log({} == {});
 // console.log([] == []);
 
@@ -202,6 +214,7 @@
 // console.log(x4, y4);
 
 // console.log({} + []);
+// console.log({} + {});
 // console.log("10" - "4" - "3" - 2 + "5");
 
 // function one() {
@@ -228,29 +241,29 @@
 // };
 // user.greet()
 
-// // async function test() {
-// //     return 1;
-// // }
-// // test().then(console.log);
-// // test().then(data => { console.log(data) });
+// async function test() {
+//     return 1;
+// }
+// test().then(console.log);
+// test().then(data => { console.log(data) });
 
-// // async function foo() {
-// //     try {
-// //         return await Promise.reject("Something went wrong");
-// //     } catch (e) {
-// //         return "Caught error: " + e;
-// //     }
-// // }
+// async function foo() {
+//     try {
+//         return await Promise.reject("Something went wrong");
+//     } catch (e) {
+//         return "Caught error: " + e;
+//     }
+// }
 
-// // foo().then(console.log);
+// foo().then(console.log);
 
 
-// // let a = 1;
-// // {
-// //     var a = 2;
-// //     console.log(a);
-// // }
-// // console.log(a);
+// let a = 1;
+// {
+//     var a = 2;
+//     console.log(a);
+// }
+// console.log(a);
 
 // const person1 = {
 //     name: "patel",
@@ -276,14 +289,17 @@
 
 
 // const sym = Symbol("secret");
+// const sym2 = Symbol("secret");
 
 // const user2 = {
 //     name: "Dhruv",
-//     [sym]: "hiddenValue"
+//     [sym]: "hiddenValue",
+//     [sym2]: "hiddenValue2",
 // };
 
 // console.log(user2.name);       // "Dhruv"
 // console.log(user2[sym]);       // "hiddenValue"
+// console.log(user2[sym2]);       // "hiddenValue2"
 // console.log(Object.keys(user2)); // ["name"] — symbol is not shown!
 
 
@@ -307,22 +323,22 @@
 // v.type = "bike";
 // console.log(v.type);
 
-// // var name2 = "test1";
+// var name2 = "test1";
 
-// // function temp() {
-// //     var name2 = "test";
+// function temp() {
+//     var name2 = "test";
 
-// //     const user = {
-// //         name2: "Dhruv",
-// //         greet: () => {
-// //             console.log(`Hello, ${this.name2}`);
-// //         },
-// //     };
+//     const user = {
+//         name2: "Dhruv",
+//         greet: () => {
+//             console.log(`Hello, ${this.name2}`);
+//         },
+//     };
 
-// //     user.greet();
-// // }
+//     user.greet();
+// }
 
-// // temp();
+// temp();
 
 // var name2 = "Kano";
 // const user3 = {
@@ -348,7 +364,6 @@
 // let interval = setTimeout(() => {
 //     console.log("hello");
 // }, 3000);
-
 // clearInterval(interval) // run before above code, so console not comes
 
 // async function foo() {
@@ -511,8 +526,8 @@
 // console.log(true * 2)
 
 // let arr = [1, 2]
-// // let a = arr.forEach((e) => e * 2)
-// // console.log(a)
+// let a = arr.forEach((e) => e * 2)
+// console.log(a)
 // let added = arr.unshift(0) // insert 0
 // let removed = arr.shift(0) // remove 0
 // console.log(arr, added, removed)
