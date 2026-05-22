@@ -1,11 +1,12 @@
-function findMissingNum(arr) {
-  // below code works only for sorted elements, otherwise you have to sort first
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i + 1] - arr[i] > 1) {
-      return arr[i] + 1;
+function findMissingNum(...rest) {
+  let data = rest.sort((a, b) => a - b);
+  let resp = [];
+  for (let i = 0; i < data.length; i++) {
+    for (let j = data[i] + 1; j < data[i + 1]; j++) {
+      resp.push(j)
     }
   }
-  return true;
+  return resp;
 }
 
-console.log(findMissingNum([1, 2, 4, 5]));
+console.log(findMissingNum(7, 1, 2, 4));
